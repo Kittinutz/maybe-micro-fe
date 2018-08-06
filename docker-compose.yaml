@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+
+  page-nuxtjs-frontend:
+    container_name: page-nuxtjs-frontend
+    build: page-nuxtjs
+    networks:
+      - local-network
+    environment:
+      - PORT=5000
+      - HOST=0.0.0.0
+      - BASE_ROUTER_PATH=/random/
+
+  nginx-frontend:
+    container_name: nginx-frontend
+    build: nginx
+    volumes:
+      - ./main-gastby/public/:/var/www/
+    ports:
+      - "8888:80"
+    networks:
+      - local-network
+    depends_on:
+      - page-nuxtjs-frontend
+volumes:
+  nginx-frontend:
+networks:
+  local-network:
