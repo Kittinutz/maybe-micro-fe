@@ -20,8 +20,6 @@ services:
   nginx-frontend:
     container_name: nginx-frontend
     build: nginx
-    volumes:
-      - ./main-gastby/public/:/var/www/
     ports:
       - "8888:80"
     networks:
@@ -29,7 +27,5 @@ services:
     depends_on:
       - page-nuxtjs-frontend
       - api-frontend
-volumes:
-  nginx-frontend:
 networks:
   local-network:

@@ -1,0 +1,16 @@
+const express = require('express')
+const router = express.Router()
+
+router.get('/', function (req, res) {
+  res.status(200).json({ message: 'main' })
+})
+
+router.get('/hot', function (req, res) {
+  res.status(200).json({ message: 'hot' })
+})
+
+router.get('/recommended', function (req, res) {
+  res.status(200).json({ message: 'recommended' })
+})
+
+module.exports = router

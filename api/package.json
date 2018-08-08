@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-		"start": "pm2 start index.js --watch",
-		"prod": "node index.js",
+    "start": "pm2 start index.js --watch",
+    "prod": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Chankaseam",
   "dependencies": {
+    "axios": "^0.18.0",
+    "bluebird": "^3.5.1",
     "express": "^4.16.3",
     "pm2": "^3.0.3"
   }
