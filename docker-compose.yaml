@@ -1,7 +1,13 @@
 version: '3'
-
 services:
-
+  api-frontend:
+    container_name: api-frontend
+    build: api
+    networks:
+      - local-network
+    environment:
+      - PORT=5000
+      - HOST=0.0.0.0
   page-nuxtjs-frontend:
     container_name: page-nuxtjs-frontend
     build: page-nuxtjs
@@ -11,7 +17,6 @@ services:
       - PORT=5000
       - HOST=0.0.0.0
       - BASE_ROUTER_PATH=/random/
-
   nginx-frontend:
     container_name: nginx-frontend
     build: nginx
@@ -23,6 +28,7 @@ services:
       - local-network
     depends_on:
       - page-nuxtjs-frontend
+      - api-frontend
 volumes:
   nginx-frontend:
 networks:
