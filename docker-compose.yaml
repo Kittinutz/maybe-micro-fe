@@ -1,31 +1,31 @@
-version: '3'
+version: '3.7'
 services:
-  api-frontend:
-    container_name: api-frontend
-    build: api
+  backend-nodejs:
+    container_name: backend-nodejs
+    build: backend/nodejs
     networks:
       - local-network
     environment:
       - PORT=5000
       - HOST=0.0.0.0
-  page-nuxtjs-frontend:
-    container_name: page-nuxtjs-frontend
-    build: page-nuxtjs
+      - BASE_PATH=/api
+  frontend-nuxtjs:
+    container_name: frontend-nuxtjs
+    build: frontend/nuxtjs
     networks:
       - local-network
     environment:
       - PORT=5000
       - HOST=0.0.0.0
-      - BASE_ROUTER_PATH=/random/
-  nginx-frontend:
-    container_name: nginx-frontend
+  nginx:
+    container_name: nginx
     build: nginx
     ports:
       - "8888:80"
     networks:
       - local-network
     depends_on:
-      - page-nuxtjs-frontend
-      - api-frontend
+      - frontend-nuxtjs
+      - backend-nodejs
 networks:
   local-network:

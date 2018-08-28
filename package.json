@@ -1,0 +1,19 @@
+{
+  "name": "maybe-micro-fe",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "docker-compose up",
+    "prod": "docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kzxp/maybe-micro-fe.git"
+  },
+  "author": "Chankaseam.t",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kzxp/maybe-micro-fe/issues"
+  },
+  "homepage": "https://github.com/kzxp/maybe-micro-fe#readme"
+}

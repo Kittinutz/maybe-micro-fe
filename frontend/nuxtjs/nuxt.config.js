@@ -44,5 +44,11 @@ module.exports = {
         component: resolve(__dirname, 'pages/index.vue')
       })
     }
+  },
+  watchers: {
+    webpack: {
+      aggregateTimeout: 300,
+      poll: 1000
+    }
   }
 }

@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+  frontend-nuxtjs:
+    volumes:
+      - ./frontend/nuxtjs:/app:rw
+      - /app/node_modules
+    command: npm run dev
+  backend-nodejs:
+    volumes:
+      - ./backend/nodejs:/app:rw
+      - /app/node_modules
+    command: npm run dev

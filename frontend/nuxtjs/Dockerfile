@@ -1,4 +1,4 @@
-FROM node:8.11.3-alpine
+FROM node:8.11.3
 
 COPY package.json .
 COPY package-lock.json .
@@ -10,5 +10,3 @@ RUN npm i -s --no-progress && \
 WORKDIR /app
 
 COPY . .
-
-CMD ["npm", "run", "prod"]
