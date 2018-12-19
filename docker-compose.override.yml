@@ -1,12 +1,16 @@
 version: '3.7'
 services:
-  frontend-nuxtjs:
+  frontend-reactjs:
     volumes:
-      - ./frontend/nuxtjs:/app:rw
-      - /app/node_modules
-    command: npm run dev
+      - type: bind
+        source: ./frontend/reactjs
+        target: /app
+      - "app/node_modules"
+    command: yarn start
   backend-nodejs:
     volumes:
-      - ./backend/nodejs:/app:rw
-      - /app/node_modules
+      - type: bind
+        source: ./backend/nodejs
+        target: /app
+      - "/app/node_modules"
     command: npm run dev

@@ -6,14 +6,18 @@ services:
     networks:
       - local-network
     volumes:
-      - backend-nodejs-data:/app/data
+      - type: volume
+        source: backend-nodejs-data
+        target: /app/data
+        volume:
+          nocopy: true
     environment:
       - PORT=5000
       - HOST=0.0.0.0
       - BASE_PATH=/api
-  frontend-nuxtjs:
-    container_name: frontend-nuxtjs
-    build: frontend/nuxtjs
+  frontend-reactjs:
+    container_name: frontend-reactjs
+    build: frontend/reactjs
     networks:
       - local-network
     environment:
@@ -27,12 +31,16 @@ services:
     networks:
       - local-network
     volumes:
-      - backend-nodejs-data:/var/www/data
+      - type: volume
+        source: backend-nodejs-data
+        target: /app/data
+        volume:
+          nocopy: true
     depends_on:
-      - frontend-nuxtjs
+      - frontend-reactjs
       - backend-nodejs
 
 volumes:
-  - backend-nodejs-data
+  backend-nodejs-data:
 networks:
   local-network:

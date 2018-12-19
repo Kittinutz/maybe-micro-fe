@@ -1,6 +1,6 @@
 version: '3.7'
 services:
-  frontend-nuxtjs:
-    command: npm run prod
+  frontend-nextjs:
+    command: yarn build
   backend-nodejs:
     command: npm run prod
